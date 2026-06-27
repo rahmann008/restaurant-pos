@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { HealthController } from './health/health.controller';
+import { MenuModule } from './menu/menu.module'; // ⭐ IMPORTANT
 
 // ⭐ IMPORTANT: import your new module
 import { RestaurantModule } from './restaurant/restaurant.module';
@@ -13,9 +14,12 @@ import { RestaurantModule } from './restaurant/restaurant.module';
 
     // ⭐ IMPORTANT: register Restaurant module here
     RestaurantModule,
+    MenuModule,
   ],
   controllers: [HealthController],
   providers: [],
+
+  
 })
 export class AppModule {}
 
