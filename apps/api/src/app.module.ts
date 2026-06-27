@@ -6,6 +6,8 @@ import { MenuModule } from './menu/menu.module'; // ⭐ IMPORTANT
 // ⭐ IMPORTANT: import your new module
 import { RestaurantModule } from './restaurant/restaurant.module';
 
+import { OrderModule } from './order/order.module'; // ⭐
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -15,6 +17,7 @@ import { RestaurantModule } from './restaurant/restaurant.module';
     // ⭐ IMPORTANT: register Restaurant module here
     RestaurantModule,
     MenuModule,
+    OrderModule,
   ],
   controllers: [HealthController],
   providers: [],
