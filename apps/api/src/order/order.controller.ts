@@ -2,6 +2,9 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { OrderService } from './order.service';
 import { Get } from '@nestjs/common';
 import { CreateOrderDto } from './dto/create-order.dto';
+import { Patch } from '@nestjs/common';
+import { CancelOrderItemDto } from './dto/cancel-order-item.dto';
+
 
 import { Param, ParseIntPipe } from '@nestjs/common';
 
@@ -34,5 +37,19 @@ getOrderById(
 }
 
 
+@Patch(':id/cancel-item')
+cancelOrderItem(
+  @Param('id', ParseIntPipe) id: number,
+  @Body() dto: CancelOrderItemDto,
+) {
+  
+return this.orderService.cancelOrderItem(
+    id,
+    dto.orderItemId,
+    dto.quantity,
+    dto.reason
+  );
+
+}
 
 }
